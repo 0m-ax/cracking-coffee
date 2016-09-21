@@ -8,22 +8,71 @@ var config = require(appRoot+'/config.json');
 //
 var express = require('express');
 var passport = require('passport');
-var Strategy = require('passport-local').Strategy;
+var LocalStrategy = require('passport-local').Strategy;
+var TwitterStrategy = require('passport-twitter').Strategy;
+var FacebookStrategy = require('passport-facebook').Strategy;
+var RememberMeStrategy = require('passport-remember-me').Strategy;
+
 var session = require('express-session');
 var RedisStore = require('connect-redis')(session);
 var user = require(appRoot+'/lib/user');
+var tokenmod = require(appRoot+'/lib/token');
 //
 // passport setup
 //
-passport.use(new Strategy(
+//rember me
+passport.use(new RememberMeStrategy({key:'rememberme'},
+  function(tokenid, cb) {
+    console.log("getting token");
+    tokenmod.get(tokenid)
+    .then((Token)=>Token.delete().then(()=>Token))
+    .then((Token)=>user.get(Token.data))
+    .catch((error)=>{
+      console.error(error,3)
+    })
+    .then((User)=>cb(null,User))
+    .catch((error)=>{
+      console.log(error,tokenid)
+      cb(null, false);
+    })
+  },
+  function(User, done) {
+    console.log("setting token");
+
+    tokenmod.make(User.id)
+    .then((Token)=>done(null, Token.id))
+  }
+));
+//local
+passport.use(new LocalStrategy(
 function(username, password, cb) {
-  user.auth(username,password).then((User)=>{
+  user.auth('email',username,password).then((User)=>{
     cb(null,User)
   }).catch((error)=>{
     cb(null, false);
   })
 }));
-
+//twitter
+passport.use(new TwitterStrategy({
+  consumerKey: config.oauth.twitter.consumerKey,
+  consumerSecret: config.oauth.twitter.consumerSecret
+}, function(token, tokenSecret, profile, cb) {
+    user.auth('twitter',profile.username).then((User)=>{
+      cb(null,User)
+    }).catch(()=>{
+      cb(null, false);
+    })
+}));
+//facebook
+passport.use(new FacebookStrategy({
+    clientID: config.oauth.facebook.clientID,
+    clientSecret: config.oauth.facebook.clientSecret,
+    callbackURL: config.baseurl+'login/facebook'
+  },
+  function(accessToken, refreshToken, profile, cb) {
+    console.log(profile)
+    return done(null, profile);
+}));
 passport.serializeUser(function(user, cb) {
   cb(null, user.id);
 });
@@ -34,6 +83,7 @@ passport.deserializeUser(function(id, cb) {
     cb(err);
   })
 });
+
 //
 // initialise express
 //
@@ -56,6 +106,8 @@ app.use(require('express-session')({
 //
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(passport.authenticate('remember-me'));
+
 app.use('/',require(appRoot+'/app/'))
 //
 //Debug stuff
@@ -67,10 +119,27 @@ if ( app.get('env') === 'development' ) {
 //
 //auth managment roots
 //
-app.post('/login',
-  passport.authenticate('local', { failureRedirect: '/login' }),
+app.post('/login/local',
+  passport.authenticate('local', { failureRedirect: '/login/local' }),
   function(req, res) {
     res.redirect('/account');
+});
+app.get('/login/facebook',
+  passport.authenticate('facebook', { failureRedirect: '/login/facebook' }),
+  function(req, res) {
+    res.redirect('/account');
+});
+app.get('/login/twitter',
+  passport.authenticate('twitter', { failureRedirect: '/login/facebook' }),
+  function(req, res) {
+    tokenmod.make(req.user.id).then((Token)=>{
+      console.log(Token.id)
+      res.cookie('rememberme', Token.id, { path:'/',httpOnly:true,maxAge: 604800000 });
+      res.redirect('/account');
+    }).catch(()=>{
+      res.redirect('/account');
+    })
+
 });
 //
 // start the app
