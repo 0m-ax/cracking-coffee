@@ -1,7 +1,7 @@
 const express = require('express');
 var app = express.Router();
 const appRoot = require('app-root-path');
-const Token = require(appRoot+'/lib/token');
+const Token = require(appRoot+'/lib/tokens');
 app.get('/',(req,res)=>{
   res.render('account/index',{user:req.user});
 })

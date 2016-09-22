@@ -16,7 +16,7 @@ var RememberMeStrategy = require('passport-remember-me').Strategy;
 var session = require('express-session');
 var RedisStore = require('connect-redis')(session);
 var user = require(appRoot+'/lib/user');
-var tokenmod = require(appRoot+'/lib/token');
+var tokenmod = require(appRoot+'/lib/tokens');
 //
 // passport setup
 //
@@ -49,6 +49,7 @@ function(username, password, cb) {
   user.auth('email',username,password).then((User)=>{
     cb(null,User)
   }).catch((error)=>{
+    console.log(error)
     cb(null, false);
   })
 }));
@@ -57,9 +58,12 @@ passport.use(new TwitterStrategy({
   consumerKey: config.oauth.twitter.consumerKey,
   consumerSecret: config.oauth.twitter.consumerSecret
 }, function(token, tokenSecret, profile, cb) {
-    user.auth('twitter',profile.username).then((User)=>{
-      cb(null,User)
-    }).catch(()=>{
+    user.auth('twitterid',profile.id)
+    .catch(()=>{
+      return user.createTwitter(token,tokenSecret,profile)
+    })
+    .then((User)=>cb(null,User))
+    .catch(()=>{
       cb(null, false);
     })
 }));
@@ -119,8 +123,8 @@ if ( app.get('env') === 'development' ) {
 //
 //auth managment roots
 //
-app.post('/login/local',
-  passport.authenticate('local', { failureRedirect: '/login/local' }),
+app.post('/login/email',
+  passport.authenticate('local', { failureRedirect: '/login/email' }),
   function(req, res) {
     res.redirect('/account');
 });
@@ -130,11 +134,15 @@ app.get('/login/facebook',
     res.redirect('/account');
 });
 app.get('/login/twitter',
-  passport.authenticate('twitter', { failureRedirect: '/login/facebook' }),
+  passport.authenticate('twitter', { failureRedirect: '/login/twitter' }),
   function(req, res) {
     tokenmod.make(req.user.id).then((Token)=>{
       console.log(Token.id)
-      res.cookie('rememberme', Token.id, { path:'/',httpOnly:true,maxAge: 604800000 });
+      res.cookie('rememberme', Token.id, {
+        path:'/',
+        httpOnly:true,
+        maxAge: 604800000
+      });
       res.redirect('/account');
     }).catch(()=>{
       res.redirect('/account');
