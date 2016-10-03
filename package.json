@@ -1,5 +1,5 @@
 {
-  "name": "express-base-app",
+  "name": "cracking-coffee",
   "version": "1.0.0",
   "description": "A base app for projects using express and rethinkdb ",
   "main": "index.js",
@@ -37,10 +37,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/initd-daemon/express-rethink-base.git"
+    "url": "git+https://github.com/initd-daemon/cracking-coffee.git"
   },
   "bugs": {
-    "url": "https://github.com/initd-daemon/express-rethink-base/issues"
+    "url": "https://github.com/initd-daemon/cracking-coffee/issues"
   },
-  "homepage": "https://github.com/initd-daemon/express-rethink-base#readme"
+  "homepage": "https://github.com/initd-daemon/cracking-coffee#readme"
 }

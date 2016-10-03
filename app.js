@@ -63,7 +63,8 @@ passport.use(new TwitterStrategy({
       return user.createTwitter(token,tokenSecret,profile)
     })
     .then((User)=>cb(null,User))
-    .catch(()=>{
+    .catch((error)=>{
+      console.error(error)
       cb(null, false);
     })
 }));
