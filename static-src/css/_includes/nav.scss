@@ -1,0 +1,14 @@
+nav{
+  top:0px;
+}
+.brand-logo>svg{
+  padding-top:2px;
+  height: 60px;
+}
+.navbar-fixed>.navcolor>.nav-wrapper>.brand-logo>svg{
+  opacity: 1;
+}
+.navcolor>.nav-wrapper>.brand-logo>svg{
+  opacity: 0;
+  transition: opacity 0.25s;
+}
