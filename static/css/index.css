@@ -2,6 +2,7 @@
   width: 100%;
 }
 .video {
+  position: relative;
   height: 300px;
   overflow-y: hidden;
 }
@@ -28,4 +29,34 @@
 
 .storelocator {
 
+}
+.video>.hold > .container {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  height: 100%;
+}
+.container > .logo{
+  height: 100%;
+}
+.container > .logo > svg{
+  height: 100%;
+}
+.logo-part{
+  fill:#fffce6;
+  fill-opacity:1;
+  fill-rule:evenodd;
+  stroke:#000000;
+  stroke-width:0;
+  stroke-linecap:butt;
+  stroke-linejoin:miter;
+  stroke-miterlimit:4;
+  stroke-dasharray:none;
+  stroke-opacity:1;
+}
+.video>.hold{
+  background-color: rgba(0,0,0,0.35);
+  height: 300px;
+  width: 100%;
+  top: 0px;
+  position: absolute;
 }
