@@ -1,17 +1,20 @@
 .video>video {
   width: 100%;
 }
+.body {
+  background-color: #6f532a;
+}
 .video {
   position: relative;
   height: 300px;
   overflow-y: hidden;
 }
 .bg:nth-child(odd) {
-    background-color: green;
+    background-color: #efe0b1;
 }
 
 .bg:nth-child(even) {
-    background-color: red;
+    background-color: #6f532a;
 }
 
 .row {
@@ -52,6 +55,9 @@
   stroke-miterlimit:4;
   stroke-dasharray:none;
   stroke-opacity:1;
+}
+.navcolor {
+  background-color: #523d1f;
 }
 .video>.hold{
   background-color: rgba(0,0,0,0.35);
