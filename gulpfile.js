@@ -3,7 +3,7 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const imagemin = require('gulp-imagemin');
-
+const nodemon = require('gulp-nodemon')
 //process sass
 gulp.task('sass', function () {
   return gulp.src('./static-src/css/*.scss')
@@ -42,7 +42,13 @@ gulp.task('html', function () {
 gulp.task('html:watch', function () {
   gulp.watch('./static-src/*.html', ['html']);
 });
+gulp.task('serve',function (){
+  nodemon({
+    script: 'app.js',
+    watch: ['app','lib']
+  })
+})
 
 gulp.task('watch',['sass:watch','image:watch','js:watch','html:watch'])
 gulp.task('process',['sass','image','js','html'])
-gulp.task('default',['process','watch'])
+gulp.task('default',['process','watch','serve'])

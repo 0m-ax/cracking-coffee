@@ -112,6 +112,7 @@ app.use(require('express-session')({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.authenticate('remember-me'));
+app.use('/static',express.static('static'));
 
 app.use('/',require(appRoot+'/app/'))
 //
