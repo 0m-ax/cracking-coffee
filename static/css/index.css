@@ -1,6 +1,6 @@
 .viddiv {
   position: fixed;
-  height: 100%;
+  height: 30%;
   width: 100%;
 }
 
@@ -11,4 +11,8 @@
 .ordonline {
   background-color: #6f532a;
   color: white;
+}
+
+.storelocator {
+
 }
