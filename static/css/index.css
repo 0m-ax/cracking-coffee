@@ -1,18 +1,13 @@
 .video>video {
   width: 100%;
 }
-<<<<<<< HEAD
 .video {
   height: 300px;
   overflow-y: hidden;
 }
-.row {
-=======
-
 .bg:nth-child(odd) {
     background-color: green;
 }
->>>>>>> 0c1faecfb647e9a77e39cebe8c0c5ab4cd31d260
 
 .bg:nth-child(even) {
     background-color: red;
