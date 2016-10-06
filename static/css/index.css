@@ -4,6 +4,14 @@
   width: 100%;
 }
 
+.bg:nth-child(odd) {
+    background-color: green;
+}
+
+.bg:nth-child(even) {
+    background-color: red;
+}
+
 .row {
 
 }
