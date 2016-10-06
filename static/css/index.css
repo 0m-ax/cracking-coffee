@@ -4,6 +4,21 @@
   width: 100%;
 }
 
+<<<<<<< HEAD
+=======
+.bg:nth-child(odd) {
+    background-color: green;
+}
+
+.bg:nth-child(even) {
+    background-color: red;
+}
+
+.row {
+ margin-bottom: 0px;
+}
+
+>>>>>>> 0c1faecfb647e9a77e39cebe8c0c5ab4cd31d260
 .blends {
     background-color: #efe0b1;
 }
