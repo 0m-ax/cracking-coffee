@@ -1,4 +1,6 @@
 @import "_includes/nav";
+@import "_includes/helpers";
+
 .video>video {
   width: 100%;
 }
@@ -32,9 +34,6 @@
   color: white;
 }
 
-.storelocator {
-
-}
 .video>.hold > .container {
   padding-top: 16px;
   padding-bottom: 16px;

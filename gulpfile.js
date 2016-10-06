@@ -33,8 +33,16 @@ gulp.task('js', function () {
 gulp.task('js:watch', function () {
   gulp.watch('./static-src/js/*.js', ['js']);
 });
+//process html
+gulp.task('html', function () {
+  return gulp.src('./static-src/*.html')
+    .pipe(gulp.dest('./static'));
+});
 
+gulp.task('html:watch', function () {
+  gulp.watch('./static-src/*.html', ['html']);
+});
 
-gulp.task('watch',['sass:watch','image:watch','js:watch'])
-gulp.task('process',['sass','image','js'])
+gulp.task('watch',['sass:watch','image:watch','js:watch','html:watch'])
+gulp.task('process',['sass','image','js','html'])
 gulp.task('default',['process','watch'])

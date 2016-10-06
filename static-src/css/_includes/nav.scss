@@ -6,9 +6,6 @@ nav{
   height: 60px;
 }
 .navbar-fixed>.navcolor>.nav-wrapper>.brand-logo>svg{
-  opacity: 1;
-}
-.navcolor>.nav-wrapper>.brand-logo>svg{
-  opacity: 0;
   transition: opacity 0.25s;
+  opacity: 1;
 }
