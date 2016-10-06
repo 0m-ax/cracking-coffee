@@ -5,21 +5,26 @@
 @import "_includes/video-head";
 
 body {
-  background-color: $dark-cream;
+  background-color: $light-cream;
 }
 
 .stripe:nth-child(odd) {
 }
 
 .stripe:nth-child(even) {
-    background-color: $lighter-brown;
-    color: #fff;
+    background-color: $dark-cream;
+  //  color: #fff;
 }
-
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
 .row {
  //margin-bottom: 0px;
 }
-
 .logo-part{
   fill:$light-cream;
   fill-opacity:1;
@@ -35,14 +40,43 @@ body {
 .navcolor {
   background-color: $dark-background;
 }
-
-.side-text-image{
-  height: 300px;
-  img{
+.stripe{
+  .side-text-image{
+    margin: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     height: 300px;
-    float: left;
+    img{
+      border-radius: 50%;
+      height: 100%;
+    }
+    .text{
+      @include vertical-align();
+    }
   }
-  .text{
-    float: left;
+}
+
+.stripe:nth-child(even){
+  .side-text-image{
+    img{
+      padding-left: 32px;
+      float: right;
+    }
+    .text{
+      text-align: right;
+      float: right;
+    }
+  }
+}
+.stripe:nth-child(odd){
+  .side-text-image{
+    img{
+      padding-right: 32px;
+      float: left;
+    }
+    .text{
+      text-align: left;
+      float: left;
+    }
   }
 }
