@@ -1,57 +1,27 @@
+@import "_includes/config";
+
 @import "_includes/nav";
 @import "_includes/helpers";
+@import "_includes/video-head";
 
-.video>video {
-  width: 100%;
-}
-.body {
-  background-color: #6f532a;
+body {
+  background-color: $dark-cream;
 }
 
-.video {
-  position: relative;
-  height: 300px;
-  overflow-y: hidden;
-}
-.bg:nth-child(odd) {
-    background-color: #efe0b1;
+.stripe:nth-child(odd) {
 }
 
-.bg:nth-child(even) {
-    background-color: #6f532a;
+.stripe:nth-child(even) {
+    background-color: $lighter-brown;
+    color: #fff;
 }
 
 .row {
- margin-bottom: 0px;
+ //margin-bottom: 0px;
 }
-
-.blends {
-    background-color: #efe0b1;
-}
-
-.ordonline {
-  background-color: #6f532a;
-  color: white;
-}
-
-.video>.hold > .container {
-  padding-top: 16px;
-  padding-bottom: 16px;
-  height: 100%;
-}
-.container > .logo{
-  height: 100%;
-}
-.container > .logo > svg{
-  height: 100%;
-}
-.hidden{
-  display: none;
-}
-
 
 .logo-part{
-  fill:#fffce6;
+  fill:$light-cream;
   fill-opacity:1;
   fill-rule:evenodd;
   stroke:#000000;
@@ -63,12 +33,16 @@
   stroke-opacity:1;
 }
 .navcolor {
-  background-color: #523d1f;
+  background-color: $dark-background;
 }
-.video>.hold{
-  background-color: rgba(0,0,0,0.35);
+
+.side-text-image{
   height: 300px;
-  width: 100%;
-  top: 0px;
-  position: absolute;
+  img{
+    height: 300px;
+    float: left;
+  }
+  .text{
+    float: left;
+  }
 }
