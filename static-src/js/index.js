@@ -2,11 +2,9 @@ $( document ).scroll(function() {
   console.log("scroll")
   if($(window).scrollTop() < 300){
     $(".nav-holder").removeClass("navbar-fixed")
-    $(".nav-placehold").addClass("hidden")
-    $(".nav-logo").removeClass("no-show")
+    $(".brand-logo").addClass("transparent")
   }else{
-    $(".nav-placehold").removeClass("hidden")
-    $(".nav-logo").addClass("no-show")
+    $(".brand-logo").removeClass("transparent")
     $(".nav-holder").addClass("navbar-fixed")
   }
 });
