@@ -6,6 +6,7 @@
 
 body {
   background-color: $light-cream;
+  overflow-x: hidden;
 }
 
 .stripe:nth-child(odd) {
@@ -40,6 +41,17 @@ body {
 .navcolor {
   background-color: $dark-background;
 }
+
+
+
+@keyframes slideInLeft {
+    from { left: -100%; }
+    to { left: 0%; }
+}
+@keyframes slideInRight {
+    from { right: -100%; }
+    to { right: 0%; }
+}
 .stripe{
   .side-text-image{
     margin: 0px;
@@ -47,10 +59,12 @@ body {
     padding-bottom: 10px;
     height: 300px;
     img{
+      position: relative;
       border-radius: 50%;
       height: 100%;
     }
     .text{
+      position: relative;
       @include vertical-align();
     }
   }
@@ -59,10 +73,12 @@ body {
 .stripe:nth-child(even){
   .side-text-image{
     img{
+      animation: slideInRight 1s 1;
       padding-left: 32px;
       float: right;
     }
     .text{
+      animation: slideInLeft 1.75s;
       text-align: right;
       float: right;
     }
@@ -71,10 +87,12 @@ body {
 .stripe:nth-child(odd){
   .side-text-image{
     img{
+      animation: slideInLeft 1s 1;
       padding-right: 32px;
       float: left;
     }
     .text{
+      animation: slideInRight 1.75s 1;
       text-align: left;
       float: left;
     }
