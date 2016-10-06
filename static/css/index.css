@@ -1,9 +1,10 @@
-.viddiv {
-  position: fixed;
-  height: 10%;
+.video>video {
   width: 100%;
 }
-
+.video {
+  height: 300px;
+  overflow-y: hidden;
+}
 .row {
 
 }
