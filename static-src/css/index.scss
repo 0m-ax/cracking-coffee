@@ -1,5 +1,11 @@
 @import "_includes/config";
-
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
 @import "_includes/nav";
 @import "_includes/helpers";
 @import "_includes/video-head";
@@ -10,19 +16,13 @@ body {
 }
 
 .stripe:nth-child(odd) {
+
 }
 
 .stripe:nth-child(even) {
     background-color: $dark-cream;
-  //  color: #fff;
 }
-@mixin vertical-align($position: relative) {
-  position: $position;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
+
 .row {
  //margin-bottom: 0px;
 }
@@ -55,8 +55,8 @@ body {
 .stripe{
   .side-text-image{
     margin: 0px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     height: 300px;
     img{
       position: relative;
@@ -74,7 +74,7 @@ body {
   .side-text-image{
     img{
       animation: slideInRight 1s 1;
-      padding-left: 32px;
+      margin-left: 32px;
       float: right;
     }
     .text{
@@ -88,7 +88,7 @@ body {
   .side-text-image{
     img{
       animation: slideInLeft 1s 1;
-      padding-right: 32px;
+      margin-right: 32px;
       float: left;
     }
     .text{
