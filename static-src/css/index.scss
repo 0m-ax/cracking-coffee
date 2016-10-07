@@ -1,0 +1,82 @@
+@import "_includes/config";
+
+@import "_includes/nav";
+@import "_includes/helpers";
+@import "_includes/video-head";
+
+body {
+  background-color: $light-cream;
+}
+
+.stripe:nth-child(odd) {
+}
+
+.stripe:nth-child(even) {
+    background-color: $dark-cream;
+  //  color: #fff;
+}
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.row {
+ //margin-bottom: 0px;
+}
+.logo-part{
+  fill:$light-cream;
+  fill-opacity:1;
+  fill-rule:evenodd;
+  stroke:#000000;
+  stroke-width:0;
+  stroke-linecap:butt;
+  stroke-linejoin:miter;
+  stroke-miterlimit:4;
+  stroke-dasharray:none;
+  stroke-opacity:1;
+}
+.navcolor {
+  background-color: $dark-background;
+}
+.stripe{
+  .side-text-image{
+    margin: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 300px;
+    img{
+      border-radius: 50%;
+      height: 100%;
+    }
+    .text{
+      @include vertical-align();
+    }
+  }
+}
+
+.stripe:nth-child(even){
+  .side-text-image{
+    img{
+      padding-left: 32px;
+      float: right;
+    }
+    .text{
+      text-align: right;
+      float: right;
+    }
+  }
+}
+.stripe:nth-child(odd){
+  .side-text-image{
+    img{
+      padding-right: 32px;
+      float: left;
+    }
+    .text{
+      text-align: left;
+      float: left;
+    }
+  }
+}
