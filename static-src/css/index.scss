@@ -1,57 +1,42 @@
+@import "_includes/config";
+@import "materialize";
+
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
 @import "_includes/nav";
 @import "_includes/helpers";
+@import "_includes/video-head";
+@import "_includes/side-text-image";
+@import "_includes/call-out";
 
-.video>video {
-  width: 100%;
-}
-.body {
-  background-color: #6f532a;
-}
-
-.video {
-  position: relative;
-  height: 300px;
-  overflow-y: hidden;
-}
-.bg:nth-child(odd) {
-    background-color: #efe0b1;
+body {
+  background-color: $light-cream;
+  overflow-x: hidden;
 }
 
-.bg:nth-child(even) {
-    background-color: #6f532a;
+.sidepadd {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.stripe:nth-child(odd) {
+
+}
+
+.stripe:nth-child(even) {
+    background-color: $dark-cream;
 }
 
 .row {
- margin-bottom: 0px;
+ //margin-bottom: 0px;
 }
-
-.blends {
-    background-color: #efe0b1;
-}
-
-.ordonline {
-  background-color: #6f532a;
-  color: white;
-}
-
-.video>.hold > .container {
-  padding-top: 16px;
-  padding-bottom: 16px;
-  height: 100%;
-}
-.container > .logo{
-  height: 100%;
-}
-.container > .logo > svg{
-  height: 100%;
-}
-.hidden{
-  display: none;
-}
-
-
 .logo-part{
-  fill:#fffce6;
+  fill:$light-cream;
   fill-opacity:1;
   fill-rule:evenodd;
   stroke:#000000;
@@ -63,12 +48,16 @@
   stroke-opacity:1;
 }
 .navcolor {
-  background-color: #523d1f;
+  background-color: $dark-background;
 }
-.video>.hold{
-  background-color: rgba(0,0,0,0.35);
-  height: 300px;
-  width: 100%;
-  top: 0px;
-  position: absolute;
+
+
+
+@keyframes slideInLeft {
+    from { left: -100%; }
+    to { left: 0%; }
+}
+@keyframes slideInRight {
+    from { right: -100%; }
+    to { right: 0%; }
 }

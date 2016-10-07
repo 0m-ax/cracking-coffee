@@ -1,0 +1,83 @@
+.stripe{
+  .side-text-image{
+    margin: 0px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    img{
+      width: 50%;
+      margin: auto;
+      display: block;
+      position: relative;
+      border-radius: 50%;
+    }
+    .text {
+      text-align: center;
+      width: 100%;
+      position: relative;
+    }
+  }
+}
+@media #{$medium-and-up} {
+  .stripe{
+    .side-text-image{
+      margin: 0px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      img{
+        margin: 0px;
+        width: 30%;
+        position: relative;
+        border-radius: 50%;
+      }
+      .text{
+        width: 70%;
+        position: relative;
+        top:50%;
+      }
+    }
+  }
+  .stripe:nth-child(even){
+    .side-text-image{
+      img{
+
+        animation: slideInRight 1s 1;
+        float: right;
+      }
+      .text{
+        padding-right: 32px;
+        animation: slideInLeft 1.75s;
+        text-align: right;
+        float: right;
+      }
+    }
+  }
+  .stripe:nth-child(odd){
+    .side-text-image{
+      img{
+        animation: slideInLeft 1s 1;
+        float: left;
+      }
+      .text{
+        padding-left: 32px;
+        animation: slideInRight 1.75s 1;
+        text-align: left;
+        float: left;
+      }
+    }
+  }
+}
+
+@media #{$large-and-up} {
+  .stripe{
+    .side-text-image{
+      img{
+        width: 15%;
+
+      }
+      .text{
+        width: 85%;
+
+      }
+    }
+  }
+}

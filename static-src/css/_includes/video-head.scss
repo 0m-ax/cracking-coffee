@@ -1,0 +1,35 @@
+.video{
+  position: relative;
+  height: 300px;
+  overflow-y: hidden;
+  .hold{
+    background-color: rgba(0,0,0,0.35);
+    height: 300px;
+    width: 100%;
+    top: 0px;
+    position: absolute;
+    .container{
+      padding-top: 16px;
+      padding-bottom: 16px;
+      height: 100%;
+      .logo{
+        float: left;
+        height: 100%;
+        svg{
+          height: 100%;
+        }
+      }
+      .text{
+        @include vertical-align();
+        font-size: 3em;
+        font-weight: bolder;
+        float:left;
+        color: $light-cream;
+        padding-left: 64px;
+      }
+    }
+  }
+  video{
+    width: 100%;
+  }
+}
