@@ -13,11 +13,12 @@
 @import "_includes/video-head";
 @import "_includes/side-text-image";
 @import "_includes/call-out";
+@import "_includes/set-of-three";
 
 body {
   background-color: $light-cream;
   overflow-x: hidden;
-}
+} 
 
 .stripe:nth-child(odd) {
 
