@@ -1,4 +1,4 @@
-$( document ).scroll(function() {
+var scrollupdate = function() {
   console.log("scroll")
   if($(window).scrollTop() < 300){
     $(".nav-holder").removeClass("navbar-fixed")
@@ -7,4 +7,6 @@ $( document ).scroll(function() {
     $(".brand-logo").removeClass("transparent")
     $(".nav-holder").addClass("navbar-fixed")
   }
-});
+}
+$( document ).scroll(scrollupdate);
+scrollupdate();
