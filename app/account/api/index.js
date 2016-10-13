@@ -1,8 +1,11 @@
 const express = require('express');
 var app = express.Router();
 const appRoot = require('app-root-path');
-const Orders = require(appRoot+'/lib/Orders');
-app.use('/',function (req,res,next){
+var bodyParser = require('body-parser')
+app.use(bodyParser.json())
+
+const Items = require(appRoot+'/lib/Items');
+app.use('/order',function (req,res,next){
   req.user.getOrder()
     .then((order)=>req.order=order)
     .then(()=>next())
@@ -10,8 +13,6 @@ app.use('/',function (req,res,next){
       console.log(error)
     })
 })
-app.use('/api',require('./api/'))
-app.get('/',function (req,res){
-  res.send(req.order)
-})
+app.use('/order',require('./order'))
+app.use('/items',require('./items'))
 module.exports = app;
