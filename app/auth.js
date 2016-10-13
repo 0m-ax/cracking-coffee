@@ -7,8 +7,16 @@ app.get('/login',(req,res)=>{
   res.render('login');
 })
 
-app.get('/stsel',(req,res)=>{
-  res.render('stsel');
+app.get('/stores',(req,res)=>{
+  res.render('stores');
+})
+
+app.get('/stores-select',(req,res)=>{
+  res.render('stores-select');
+})
+
+app.get('/items',(req,res)=>{
+  res.render('items');
 })
 
 app.get('/cart',(req,res)=>{
