@@ -7,7 +7,7 @@ app.get('/login',(req,res)=>{
   res.render('login',{nav:[
     {
       "text":"Home",
-      "selected":true,
+      "selected":false,
       "link":"/"
     },
     {
@@ -17,7 +17,7 @@ app.get('/login',(req,res)=>{
     },
     {
       "text":"Order online",
-      "selected":false,
+      "selected":true,
       "link":"stores-select"
     }
   ]
@@ -28,7 +28,7 @@ app.get('/login/email',(req,res)=>{
   res.render('login/email',{nav:[
     {
       "text":"Home",
-      "selected":true,
+      "selected":false,
       "link":"/"
     },
     {
@@ -38,7 +38,7 @@ app.get('/login/email',(req,res)=>{
     },
     {
       "text":"Order online",
-      "selected":false,
+      "selected":true,
       "link":"stores-select"
     }
   ]
@@ -49,7 +49,7 @@ app.get('/signup/email',(req,res)=>{
   res.render('signup/email',{nav:[
     {
       "text":"Home",
-      "selected":true,
+      "selected":false,
       "link":"/"
     },
     {
@@ -59,7 +59,7 @@ app.get('/signup/email',(req,res)=>{
     },
     {
       "text":"Order online",
-      "selected":false,
+      "selected":true,
       "link":"stores-select"
     }
   ]

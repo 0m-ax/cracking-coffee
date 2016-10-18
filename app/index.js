@@ -26,12 +26,12 @@ app.get('/stores',(req,res)=>{
   res.render('stores',{nav:[
     {
       "text":"Home",
-      "selected":true,
+      "selected":false,
       "link":"/"
     },
     {
       "text":"Stores",
-      "selected":false,
+      "selected":true,
       "link":"stores"
     },
     {
@@ -47,7 +47,7 @@ app.get('/stores-select',(req,res)=>{
   res.render('stores-select',{nav:[
     {
       "text":"Home",
-      "selected":true,
+      "selected":false,
       "link":"/"
     },
     {
@@ -57,7 +57,7 @@ app.get('/stores-select',(req,res)=>{
     },
     {
       "text":"Order online",
-      "selected":false,
+      "selected":true,
       "link":"stores-select"
     }
   ]
@@ -69,7 +69,7 @@ app.get('/items',(req,res)=>{
   res.render('items',{nav:[
     {
       "text":"Home",
-      "selected":true,
+      "selected":false,
       "link":"/"
     },
     {
@@ -79,7 +79,7 @@ app.get('/items',(req,res)=>{
     },
     {
       "text":"Order online",
-      "selected":false,
+      "selected":true,
       "link":"stores-select"
     }
   ]
@@ -91,7 +91,7 @@ app.get('/customise',(req,res)=>{
   res.render('customise',{nav:[
     {
       "text":"Home",
-      "selected":true,
+      "selected":false,
       "link":"/"
     },
     {
@@ -101,7 +101,7 @@ app.get('/customise',(req,res)=>{
     },
     {
       "text":"Order online",
-      "selected":false,
+      "selected":true,
       "link":"stores-select"
     }
   ]
@@ -112,7 +112,7 @@ app.get('/cart',(req,res)=>{
   res.render('cart',{nav:[
     {
       "text":"Home",
-      "selected":true,
+      "selected":false,
       "link":"/"
     },
     {
@@ -122,7 +122,7 @@ app.get('/cart',(req,res)=>{
     },
     {
       "text":"Order online",
-      "selected":false,
+      "selected":true,
       "link":"stores-select"
     }
   ]
