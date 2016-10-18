@@ -20,6 +20,10 @@ body {
   overflow-x: hidden;
 }
 
+.btn{
+  background-color: $dark-background
+}
+
 .goog-map {
   width: 100%;
   height: 400px;
