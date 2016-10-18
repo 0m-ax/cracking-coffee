@@ -28,11 +28,11 @@ chown rethinkdb:rethinkdb -R /var/lib/rethinkdb
 sudo /etc/init.d/rethinkdb restart
 SCRIPT
 $redisScript = <<SCRIPT
-sudoa apt-get update
+sudo apt-get update
 sudo apt-get install software-properties-common
 sudo add-apt-repository ppa:chris-lea/redis-server
 sudo apt-get update
-sudo apt-get install -y redis-server
+sudo apt-get install -y --force-yes redis-server
 sudo cp /vagrant/redis.conf /etc/redis/redis.conf
 sudo service redis-server restart
 SCRIPT
