@@ -10,12 +10,12 @@ app.get('/',(req,res)=>{
     {
       "text":"Stores",
       "selected":false,
-      "link":"stores"
+      "link":"/stores"
     },
     {
       "text":"Order online",
       "selected":false,
-      "link":"stores-select"
+      "link":"/stores-select"
     }
   ]
   });
@@ -32,12 +32,12 @@ app.get('/stores',(req,res)=>{
     {
       "text":"Stores",
       "selected":true,
-      "link":"stores"
+      "link":"/stores"
     },
     {
       "text":"Order online",
       "selected":false,
-      "link":"stores-select"
+      "link":"/stores-select"
     }
   ]
   });
@@ -53,12 +53,12 @@ app.get('/stores-select',(req,res)=>{
     {
       "text":"Stores",
       "selected":false,
-      "link":"stores"
+      "link":"/stores"
     },
     {
       "text":"Order online",
       "selected":true,
-      "link":"stores-select"
+      "link":"/stores-select"
     }
   ]
   });
@@ -75,12 +75,12 @@ app.get('/items',(req,res)=>{
     {
       "text":"Stores",
       "selected":false,
-      "link":"stores"
+      "link":"/stores"
     },
     {
       "text":"Order online",
       "selected":true,
-      "link":"stores-select"
+      "link":"/stores-select"
     }
   ]
   });
@@ -97,12 +97,12 @@ app.get('/customise',(req,res)=>{
     {
       "text":"Stores",
       "selected":false,
-      "link":"stores"
+      "link":"/stores"
     },
     {
       "text":"Order online",
       "selected":true,
-      "link":"stores-select"
+      "link":"/stores-select"
     }
   ]
   });
@@ -118,12 +118,12 @@ app.get('/cart',(req,res)=>{
     {
       "text":"Stores",
       "selected":false,
-      "link":"stores"
+      "link":"/stores"
     },
     {
       "text":"Order online",
       "selected":true,
-      "link":"stores-select"
+      "link":"/stores-select"
     }
   ]
   });
@@ -139,12 +139,12 @@ app.get('/pay',(req,res)=>{
     {
       "text":"Stores",
       "selected":false,
-      "link":"stores"
+      "link":"/stores"
     },
     {
       "text":"Order online",
       "selected":true,
-      "link":"stores-select"
+      "link":"/stores-select"
     }
   ]
   });
@@ -160,12 +160,12 @@ app.get('/waiting',(req,res)=>{
     {
       "text":"Stores",
       "selected":false,
-      "link":"stores"
+      "link":"/stores"
     },
     {
       "text":"Order online",
       "selected":true,
-      "link":"stores-select"
+      "link":"/stores-select"
     }
   ]
   });
@@ -181,12 +181,12 @@ app.get('/ready',(req,res)=>{
     {
       "text":"Stores",
       "selected":false,
-      "link":"stores"
+      "link":"/stores"
     },
     {
       "text":"Order online",
       "selected":true,
-      "link":"stores-select"
+      "link":"/stores-select"
     }
   ]
   });
