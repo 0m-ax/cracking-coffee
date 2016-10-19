@@ -4,31 +4,66 @@ const express = require('express');
 var app = express.Router();
 
 app.get('/login',(req,res)=>{
-  res.render('login');
-})
-
-app.get('/stores',(req,res)=>{
-  res.render('stores');
-})
-
-app.get('/stores-select',(req,res)=>{
-  res.render('stores-select');
-})
-
-app.get('/items',(req,res)=>{
-  res.render('items');
-})
-
-app.get('/cart',(req,res)=>{
-  res.render('cart');
+  res.render('login',{nav:[
+    {
+      "text":"Home",
+      "selected":false,
+      "link":"/"
+    },
+    {
+      "text":"Stores",
+      "selected":false,
+      "link":"stores"
+    },
+    {
+      "text":"Order online",
+      "selected":true,
+      "link":"stores-select"
+    }
+  ]
+  });
 })
 
 app.get('/login/email',(req,res)=>{
-  res.render('login/email');
+  res.render('login/email',{nav:[
+    {
+      "text":"Home",
+      "selected":false,
+      "link":"/"
+    },
+    {
+      "text":"Stores",
+      "selected":false,
+      "link":"stores"
+    },
+    {
+      "text":"Order online",
+      "selected":true,
+      "link":"stores-select"
+    }
+  ]
+  });
 })
 
 app.get('/signup/email',(req,res)=>{
-  res.render('signup/email');
+  res.render('signup/email',{nav:[
+    {
+      "text":"Home",
+      "selected":false,
+      "link":"/"
+    },
+    {
+      "text":"Stores",
+      "selected":false,
+      "link":"stores"
+    },
+    {
+      "text":"Order online",
+      "selected":true,
+      "link":"stores-select"
+    }
+  ]
+  });
 })
 
 app.post('/signup/email',(req,res)=>{
