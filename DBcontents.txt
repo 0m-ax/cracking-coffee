@@ -1,0 +1,19 @@
+You can get exact locations from google maps on stores page
+
+stores:
+-manchester
+-didsbury
+
+
+items:
+-Americano £2.00
+-Latte £2.50
+-Cappuccino £2.50
+-Flat White £2.40
+
+
+Options:
+-large +£0.50
+
+-Syrup:
+  -pumpkin spice £0.50
