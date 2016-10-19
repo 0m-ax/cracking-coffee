@@ -150,6 +150,69 @@ app.get('/pay',(req,res)=>{
   });
 })
 
+app.get('/waiting',(req,res)=>{
+  res.render('waiting',{nav:[
+    {
+      "text":"Home",
+      "selected":false,
+      "link":"/"
+    },
+    {
+      "text":"Stores",
+      "selected":false,
+      "link":"stores"
+    },
+    {
+      "text":"Order online",
+      "selected":true,
+      "link":"stores-select"
+    }
+  ]
+  });
+})
+
+app.get('/ready',(req,res)=>{
+  res.render('ready',{nav:[
+    {
+      "text":"Home",
+      "selected":false,
+      "link":"/"
+    },
+    {
+      "text":"Stores",
+      "selected":false,
+      "link":"stores"
+    },
+    {
+      "text":"Order online",
+      "selected":true,
+      "link":"stores-select"
+    }
+  ]
+  });
+})
+
+app.get('/served',(req,res)=>{
+  res.render('served',{nav:[
+    {
+      "text":"Home",
+      "selected":false,
+      "link":"/"
+    },
+    {
+      "text":"Stores",
+      "selected":false,
+      "link":"/stores"
+    },
+    {
+      "text":"Order online",
+      "selected":true,
+      "link":"/stores-select"
+    }
+  ]
+  });
+})
+
 app.use('/',require('./auth.js'))
 app.use('/account',
   require('connect-ensure-login').ensureLoggedIn(),
