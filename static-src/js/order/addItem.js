@@ -6,9 +6,9 @@ angular.module('order.addItem', ['ngRoute'])
   });
 }])
 .controller('addItemCtrl', ['$scope','Order','$location','Item','$routeParams',function($scope,Order,$location,Item,$routeParams) {
-  $scope.options = [];
   Item.get($routeParams.itemID).then((item)=>{
     $scope.item = item;
+    $scope.options = item.options.map((option)=>option.default)
   })
   $scope.addItem = function (){
     Order.addItem($routeParams.itemID,$scope.options).then(()=>{
