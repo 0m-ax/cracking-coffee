@@ -1,9 +1,35 @@
-{{}}
-<div ng-repeat="(key, value) in item.options">
-  {{value.name}}
-  <div ng-repeat="(valueID,valueValue) in value.options">
-      <input type="radio" ng-model="options[key]" ng-value="valueID" id="{{key}}{{valueID}}">
-      <label for="{{key}}{{valueID}}">{{valueValue.name}}</label>
-  </div>
-</div>
+
 <a ng-click="addItem()">addItem</a>
+             <div class="col s12 m4">
+               <div class="card">
+                 <div class="card-image">
+                   <img src="/static/img/latte.jpeg">
+                 </div>
+               </div>
+             </div>
+
+             <div class="col s12 m5">
+                 <h4>{{item.name}}</h4>
+                 <div ng-repeat="(key, value) in item.options">
+                   <p>{{value.name}}:</p>
+                   <div ng-repeat="(valueID,valueValue) in value.options">
+                     <input class="with-gap" type="radio" ng-model="options[key]" ng-value="valueID" id="{{key}}{{valueID}}">
+                     <label for="{{key}}{{valueID}}">{{valueValue.name}}</label>
+                   </div>
+               </div>
+             </div>
+
+
+             <div class="col s12 m3">
+                <div class="card">
+                  <div class="card-content">
+                    <span class="card-title">{{item.cost | currency : '£'}}</span>
+                    <ul class="collection with-header" ng-repeat="(optionID,optionKey) in options">
+                      <li class="collection-item"><div>{{item.options[optionID].options[optionKey].name}}<a href="#!" class="secondary-content">{{item.options[optionID].options[optionKey].cost | currency : '£'}}</a></div></li>
+                    </ul>
+                  </div>
+                  <div class="card-action">
+                    <a ng-click="addItem()">Add to basket</a>
+                  </div>
+                </div>
+            </div>
