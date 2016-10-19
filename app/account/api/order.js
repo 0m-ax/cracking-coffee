@@ -88,7 +88,7 @@ function (req,res,next){
 })
 app.get('/served',
 function (req,res,next){
-  if(req.order.stage !== "payed"){
+  if(req.order.stage !== "ready"){
     res.send({error:true})
   }else{
     next()
@@ -96,6 +96,21 @@ function (req,res,next){
 },
 function (req,res,next){
   req.order.served()
+  .then(()=>{
+    next()
+  })
+})
+app.get('/ready',
+function (req,res,next){
+  console.log(req.order.stage)
+  if(req.order.stage !== "payed"){
+    res.send({error:true})
+  }else{
+    next()
+  }
+},
+function (req,res,next){
+  req.order.ready()
   .then(()=>{
     next()
   })

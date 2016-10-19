@@ -1,0 +1,9 @@
+{{}}
+<div ng-repeat="(key, value) in item.options">
+  {{value.name}}
+  <div ng-repeat="(valueID,valueValue) in value.options">
+      <input type="radio" ng-model="options[key]" ng-value="valueID" id="{{key}}{{valueID}}">
+      <label for="{{key}}{{valueID}}">{{valueValue.name}}</label>
+  </div>
+</div>
+<a ng-click="addItem()">addItem</a>

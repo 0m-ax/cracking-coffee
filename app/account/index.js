@@ -6,6 +6,11 @@ app.use('/api',require('./api'))
 app.get('/',(req,res)=>{
   res.render('account/index',{user:req.user});
 })
+app.get('/order',(req,res)=>{
+  res.render('account/order',{
+    
+  })
+})
 app.get('/logout',(req,res)=>{
   Promise.resolve()
     .then(()=>{

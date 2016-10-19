@@ -26,21 +26,21 @@ gulp.task('image:watch', function () {
 });
 //process javascript
 gulp.task('js', function () {
-  return gulp.src('./static-src/js/*.js')
+  return gulp.src('./static-src/js/**/*.js')
     .pipe(gulp.dest('./static/js'));
 });
 
 gulp.task('js:watch', function () {
-  gulp.watch('./static-src/js/*.js', ['js']);
+  gulp.watch('./static-src/js/**/*.js', ['js']);
 });
 //process html
 gulp.task('html', function () {
-  return gulp.src('./static-src/*.html')
+  return gulp.src('./static-src/**/*.html')
     .pipe(gulp.dest('./static'));
 });
 
 gulp.task('html:watch', function () {
-  gulp.watch('./static-src/*.html', ['html']);
+  gulp.watch('./static-src/**/*.html', ['html']);
 });
 gulp.task('serve',function (){
   nodemon({

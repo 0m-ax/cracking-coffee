@@ -15,4 +15,6 @@ app.use('/order',function (req,res,next){
 })
 app.use('/order',require('./order'))
 app.use('/items',require('./items'))
+app.use('/stores',require('./stores'))
+
 module.exports = app;

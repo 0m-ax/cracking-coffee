@@ -7,4 +7,9 @@ app.get('/list',function (req,res,next){
     res.send(items)
   })
 })
+app.get('/get/:itemID',function (req,res,next){
+  Items.get(req.params.itemID).then((item)=>{
+    res.send(item)
+  })
+})
 module.exports = app;
