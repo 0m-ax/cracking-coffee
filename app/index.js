@@ -129,6 +129,27 @@ app.get('/cart',(req,res)=>{
   });
 })
 
+app.get('/pay',(req,res)=>{
+  res.render('pay',{nav:[
+    {
+      "text":"Home",
+      "selected":false,
+      "link":"/"
+    },
+    {
+      "text":"Stores",
+      "selected":false,
+      "link":"stores"
+    },
+    {
+      "text":"Order online",
+      "selected":true,
+      "link":"stores-select"
+    }
+  ]
+  });
+})
+
 app.use('/',require('./auth.js'))
 app.use('/account',
   require('connect-ensure-login').ensureLoggedIn(),
