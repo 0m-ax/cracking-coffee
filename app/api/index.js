@@ -2,8 +2,8 @@ const express = require('express');
 var app = express.Router();
 const appRoot = require('app-root-path');
 const Order = require(appRoot+'/lib/Orders');
-app.get('/list',function (req,res,next){
-  Order.getWaiting().then((items)=>{
+app.get('/list/:storeID',function (req,res,next){
+  Order.getWaiting(req.params.storeID).then((items)=>{
     res.send(items)
   })
 })

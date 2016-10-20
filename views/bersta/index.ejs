@@ -1,6 +1,6 @@
 <div ng-app="myApp" ng-controller="myCtrl">
   <div ng-repeat="(key, order) in orders">
-    <h1>{{order.stage}}</h1>
+    <h1>{{order.id.slice(-5)}}{{order.stage}}</h1>
     <div ng-repeat="(keyI, item) in order.items">
       <h2>{{item.name}}:</h2>
       <div ng-repeat="(keyO, option) in item.options">
@@ -16,7 +16,8 @@
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope,$http,$timeout) {
   uupdateFN = ()=>{
-    $http.get('/api/list').then((orders)=>{
+    var storeID = window.location.hash.substr(1)
+    $http.get('/api/list/'+storeID).then((orders)=>{
       $scope.orders = orders.data;
     }).then(()=>{
       $timeout(uupdateFN,500)
