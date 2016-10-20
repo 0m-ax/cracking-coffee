@@ -20,9 +20,29 @@ body {
   overflow-x: hidden;
 }
 
-.btn{
-  background-color: $dark-background
+.blends-card {
+  height: 100px;
 }
+
+.cart-bottom {
+  position: fixed;
+  bottom: 0px;
+  width:100%;
+  padding-bottom: 10px;
+}
+
+.cart-btn-submit {
+  float:right;
+}
+
+.cart-btn-add {
+  float: left;
+}
+
+.pay-btn-confirm {
+  float: right;
+}
+
 
 .goog-map {
   width: 100%;

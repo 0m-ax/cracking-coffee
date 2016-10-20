@@ -13,12 +13,12 @@ app.get('/login',(req,res)=>{
     {
       "text":"Stores",
       "selected":false,
-      "link":"stores"
+      "link":"/stores"
     },
     {
       "text":"Order online",
       "selected":true,
-      "link":"stores-select"
+      "link":"/stores-select"
     }
   ]
   });
@@ -34,12 +34,12 @@ app.get('/login/email',(req,res)=>{
     {
       "text":"Stores",
       "selected":false,
-      "link":"stores"
+      "link":"/stores"
     },
     {
       "text":"Order online",
       "selected":true,
-      "link":"stores-select"
+      "link":"/stores-select"
     }
   ]
   });
@@ -55,12 +55,12 @@ app.get('/signup/email',(req,res)=>{
     {
       "text":"Stores",
       "selected":false,
-      "link":"stores"
+      "link":"/stores"
     },
     {
       "text":"Order online",
       "selected":true,
-      "link":"stores-select"
+      "link":"/stores-select"
     }
   ]
   });
