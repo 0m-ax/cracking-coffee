@@ -12,7 +12,7 @@
                  <div ng-repeat="(key, value) in item.options">
                    <p>{{value.name}}:</p>
                    <div ng-repeat="(valueID,valueValue) in value.options">
-                     <input class="with-gap" type="radio" ng-model="options[key][key]" ng-value="valueID+1" id="{{key}}{{valueID}}">
+                     <input class="with-gap" type="radio" ng-model="options[key][key]" ng-value="valueID" id="{{key}}{{valueID}}">
                      <label for="{{key}}{{valueID}}">{{valueValue.name}}</label>
                    </div>
                </div>
@@ -23,7 +23,7 @@
                   <div class="card-content">
                     <span class="card-title">{{item.cost | currency : '£'}}</span>
                     <ul class="collection with-header" ng-repeat="(optionID,optionKey) in options">
-                      <li class="collection-item"><div>{{item.options[optionID].options[optionKey[optionID]-1].name}}<a href="#!" class="secondary-content">{{item.options[optionID].options[optionKey[optionID]-1].cost | currency : '£'}}</a></div></li>
+                      <li class="collection-item"><div>{{item.options[optionID].options[optionKey[optionID]].name}}<a href="#!" class="secondary-content">{{item.options[optionID].options[optionKey[optionID]].cost | currency : '£'}}</a></div></li>
                     </ul>
                   </div>
                   <div class="card-action">

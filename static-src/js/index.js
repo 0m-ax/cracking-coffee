@@ -1,6 +1,6 @@
 var scrollupdate = function() {
   console.log("scroll")
-  if($(window).scrollTop() < 300){
+  if($(window).scrollTop() < $(".video").height() && $('.video').is(':visible')){
     $(".nav-holder").removeClass("navbar-fixed")
     $(".brand-logo").addClass("transparent")
   }else{

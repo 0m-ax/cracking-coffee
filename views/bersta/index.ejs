@@ -1,16 +1,25 @@
 <div ng-app="myApp" ng-controller="myCtrl">
-  <div ng-repeat="(key, order) in orders">
-    <h1>{{order.id.slice(-5)}}{{order.stage}}</h1>
-    <div ng-repeat="(keyI, item) in order.items">
-      <h2>{{item.name}}:</h2>
-      <div ng-repeat="(keyO, option) in item.options">
-        <h4>{{option.name}}:{{option.options[option.selected].name}}<h4>
+  <div class="row">
+      <div class="col s12 " ng-repeat="(key, order) in orders">
+        <div class="card darken-1" ng-class="{'blue-grey': order.stage=='payed', blue: order.stage=='ready'}">
+          <div class="card-content white-text">
+            <h3>{{order.id.slice(-5)}}</h3>
+            <div ng-repeat="(keyI, item) in order.items">
+              <h4>{{item.name}}:</h4>
+              <div ng-repeat="(keyO, option) in item.options">
+                {{option.name}}:{{option.options[option.selected].name}}
+              </div>
+            </div>
+          </div>
+          <div class="card-action">
+            <a ng-if="order.stage == 'payed'" ng-click="ready(order.id)">Ready</a>
+            <a ng-if="order.stage == 'ready'" ng-click="served(order.id)">Served</a>
+          </div>
+        </div>
       </div>
     </div>
-    <a ng-click="ready(order.id)">Ready</a>    <a ng-click="served(order.id)">Served</a>
-    <hr>
-  </div>
 </div>
+
 <script src="/static/js/angular.min.js" charset="utf-8"></script>
 <script>
 var app = angular.module('myApp', []);

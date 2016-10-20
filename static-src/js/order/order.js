@@ -12,6 +12,7 @@ angular.module('order.order', ['ngRoute'])
         return option.options[option.selected].cost+value
       },item.cost)
       item.subText = item.options.reduce((value,option)=>{
+        console.log(option.selected)
         return value+option.options[option.selected].name+", "
       },"").slice(0, -2);
       return item;

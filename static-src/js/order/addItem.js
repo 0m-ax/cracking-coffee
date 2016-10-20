@@ -10,14 +10,17 @@ angular.module('order.addItem', ['ngRoute'])
     $scope.item = item;
     $scope.options = item.options.map((option,key)=>{
       t = [];
-      t[key] = option.default+1;
+      t[key] = option.default;
       return t;
     })
   })
   $scope.addItem = function (){
     Order.addItem($routeParams.itemID,$scope.options.map((option,key)=>{
-      return option[key]-1;
+      return option[key];
     })).then(()=>{
+      console.log($scope.options.map((option,key)=>{
+        return option[key];
+      }))
       $location.path('/order')
     })
   }
