@@ -20,6 +20,19 @@ body {
   overflow-x: hidden;
 }
 
+/* remove header video on home page when on mobile */
+@media only screen and (max-device-width: 480px) {
+  .video {
+    display: none;
+  }
+}
+
+
+
+.shadow {
+ text-shadow: 0px 0px 6px #000000;
+}
+
 .blends-card {
   height: 100px;
 }
@@ -88,8 +101,9 @@ body {
 }
 
 .row {
- //margin-bottom: 0px;
+
 }
+
 .logo-part{
   fill:$light-cream;
   fill-opacity:1;
