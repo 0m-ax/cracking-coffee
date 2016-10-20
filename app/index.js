@@ -128,7 +128,27 @@ app.get('/cart',(req,res)=>{
   ]
   });
 })
-
+app.get('/bersta',(req,res)=>{
+  res.render('bersta/index',{nav:[
+    {
+      "text":"Home",
+      "selected":false,
+      "link":"/"
+    },
+    {
+      "text":"Stores",
+      "selected":false,
+      "link":"stores"
+    },
+    {
+      "text":"Order online",
+      "selected":true,
+      "link":"stores-select"
+    }
+  ]
+  });
+})
+app.use('/api',require('./api'))
 app.use('/',require('./auth.js'))
 app.use('/account',
   require('connect-ensure-login').ensureLoggedIn(),
