@@ -3,9 +3,8 @@
                       <div class="card">
                         <div class="card-content">
                           <span class="card-title">Confirm your items and pay</span>
-                          <ul class="collection with-header">
-                            <li class="collection-item"><div>coffee<a href="#!" class="secondary-content">£1.20</a></div></li>
-                            <li class="collection-item"><div>coffee<a href="#!" class="secondary-content">£1.20</a></div></li>
+                          <ul class="collection with-header" ng-repeat="(itemKey, item) in items">
+                            <li class="collection-item"><div>{{item.name}}:{{item.subText}}<a href="#!" class="secondary-content">{{item.totalCost| currency : '£'}}</a></div></li>
                           </ul>
                         </div>
                         <div class="card-action">

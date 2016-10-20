@@ -15,7 +15,7 @@
              <a class="btn-floating btn-large waves-effect waves-light store-select-btn" ng-href="#/addItem/{{item.id}}"><i class="material-icons">add</i></a>
           </p>
           <p>
-            £{{item.cost}}
+            {{item.cost| currency : '£'}}
           </p>
         </div>
       </div>
