@@ -4,29 +4,11 @@ const appRoot = require('app-root-path');
 const Token = require(appRoot+'/lib/tokens');
 app.use('/api',require('./api'))
 app.get('/',(req,res)=>{
-  res.render('account/index',{user:req.user});
+  res.redirect('/account/order')
 })
-
 app.get('/order',(req,res)=>{
-  res.render('account/order',{nav:[
-    {
-      "text":"Home",
-      "selected":false,
-      "link":"/"
-    },
-    {
-      "text":"Stores",
-      "selected":false,
-      "link":"stores"
-    },
-    {
-      "text":"Order online",
-      "selected":false,
-      "link":"stores-select"
-    }
-  ]
-  });
-});
+  res.render('account/order',req.resdata);
+})
 app.get('/logout',(req,res)=>{
   Promise.resolve()
     .then(()=>{
