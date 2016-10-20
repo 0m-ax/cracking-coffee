@@ -2,69 +2,16 @@ const appRoot = require('app-root-path');
 const users = require(appRoot+'/lib/user');
 const express = require('express');
 var app = express.Router();
-
 app.get('/login',(req,res)=>{
-  res.render('login',{nav:[
-    {
-      "text":"Home",
-      "selected":false,
-      "link":"/"
-    },
-    {
-      "text":"Stores",
-      "selected":false,
-      "link":"/stores"
-    },
-    {
-      "text":"Order online",
-      "selected":true,
-      "link":"/stores-select"
-    }
-  ]
-  });
+  res.render('login',res.resdata);
 })
-
 app.get('/login/email',(req,res)=>{
-  res.render('login/email',{nav:[
-    {
-      "text":"Home",
-      "selected":false,
-      "link":"/"
-    },
-    {
-      "text":"Stores",
-      "selected":false,
-      "link":"/stores"
-    },
-    {
-      "text":"Order online",
-      "selected":true,
-      "link":"/stores-select"
-    }
-  ]
-  });
+  res.render('login/email',res.resdata);
+})
+app.get('/signup/email',(req,res)=>{
+  res.render('login/email',res.resdata);
 })
 
-app.get('/signup/email',(req,res)=>{
-  res.render('signup/email',{nav:[
-    {
-      "text":"Home",
-      "selected":false,
-      "link":"/"
-    },
-    {
-      "text":"Stores",
-      "selected":false,
-      "link":"/stores"
-    },
-    {
-      "text":"Order online",
-      "selected":true,
-      "link":"/stores-select"
-    }
-  ]
-  });
-})
 
 app.post('/signup/email',(req,res)=>{
   users.createEmail(req.body.username,req.body.password)
