@@ -9,7 +9,7 @@ app.get('/login/email',(req,res)=>{
   res.render('login/email',req.resdata);
 })
 app.get('/signup/email',(req,res)=>{
-  res.render('login/email',req.resdata);
+  res.render('signup/email',req.resdata);
 })
 
 
