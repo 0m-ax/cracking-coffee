@@ -8,10 +8,16 @@ angular.module('order.addItem', ['ngRoute'])
 .controller('addItemCtrl', ['$scope','Order','$location','Item','$routeParams',function($scope,Order,$location,Item,$routeParams) {
   Item.get($routeParams.itemID).then((item)=>{
     $scope.item = item;
-    $scope.options = item.options.map((option)=>option.default)
+    $scope.options = item.options.map((option,key)=>{
+      t = [];
+      t[key] = option.default+1;
+      return t;
+    })
   })
   $scope.addItem = function (){
-    Order.addItem($routeParams.itemID,$scope.options).then(()=>{
+    Order.addItem($routeParams.itemID,$scope.options.map((option,key)=>{
+      return option[key]-1;
+    })).then(()=>{
       $location.path('/order')
     })
   }
