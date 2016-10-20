@@ -2,9 +2,12 @@ const express = require('express');
 var app = express.Router();
 const appRoot = require('app-root-path');
 const Token = require(appRoot+'/lib/tokens');
-app.use('/order',require('./order'))
+app.use('/api',require('./api'))
 app.get('/',(req,res)=>{
-  res.render('account/index',{user:req.user});
+  res.redirect('/account/order')
+})
+app.get('/order',(req,res)=>{
+  res.render('account/order',req.resdata);
 })
 app.get('/logout',(req,res)=>{
   Promise.resolve()

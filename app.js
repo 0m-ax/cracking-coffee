@@ -106,6 +106,28 @@ app.use(require('express-session')({
   saveUninitialized: false,
   store: new RedisStore(config.session.redis)
 }));
+app.use((req,res,next)=>{
+  req.resdata = {
+    nav:[
+    {
+      "text":"Home",
+      "selected":false,
+      "link":"/"
+    },
+    {
+      "text":"Stores",
+      "selected":false,
+      "link":"/stores"
+    },
+    {
+      "text":"Order online",
+      "selected":false,
+      "link":"/account"
+    }
+  ]
+  }
+  next()
+})
 //
 // start passport
 //

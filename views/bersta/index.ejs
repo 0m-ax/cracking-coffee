@@ -1,0 +1,45 @@
+<div ng-app="myApp" ng-controller="myCtrl">
+  <div class="row">
+      <div class="col s12 " ng-repeat="(key, order) in orders">
+        <div class="card darken-1" ng-class="{'blue-grey': order.stage=='payed', blue: order.stage=='ready'}">
+          <div class="card-content white-text">
+            <h3>{{order.id.slice(-5)}}</h3>
+            <div ng-repeat="(keyI, item) in order.items">
+              <h4>{{item.name}}:</h4>
+              <div ng-repeat="(keyO, option) in item.options">
+                {{option.name}}:{{option.options[option.selected].name}}
+              </div>
+            </div>
+          </div>
+          <div class="card-action">
+            <a ng-if="order.stage == 'payed'" ng-click="ready(order.id)">Ready</a>
+            <a ng-if="order.stage == 'ready'" ng-click="served(order.id)">Served</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<script src="/static/js/angular.min.js" charset="utf-8"></script>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope,$http,$timeout) {
+  uupdateFN = ()=>{
+    var storeID = window.location.hash.substr(1)
+    $http.get('/api/list/'+storeID).then((orders)=>{
+      $scope.orders = orders.data;
+    }).then(()=>{
+      $timeout(uupdateFN,500)
+    })
+  }
+  uupdateFN()
+  $scope.ready = function (id){
+    $http.get('/api/ready/'+id).then((orders)=>{
+    })
+  }
+  $scope.served = function (id){
+    $http.get('/api/served/'+id).then((orders)=>{
+    })
+  }
+});
+</script>

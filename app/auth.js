@@ -3,14 +3,16 @@ const users = require(appRoot+'/lib/user');
 const express = require('express');
 var app = express.Router();
 app.get('/login',(req,res)=>{
-  res.render('login');
+  res.render('login',req.resdata);
 })
 app.get('/login/email',(req,res)=>{
-  res.render('login/email');
+  res.render('login/email',req.resdata);
 })
 app.get('/signup/email',(req,res)=>{
-  res.render('signup/email');
+  res.render('signup/email',req.resdata);
 })
+
+
 app.post('/signup/email',(req,res)=>{
   users.createEmail(req.body.username,req.body.password)
   .then(()=>res.redirect('/login/email'))
@@ -20,4 +22,5 @@ app.post('/signup/email',(req,res)=>{
   })
   .catch(()=>res.redirect('/signup/email?error=true'))
 })
+
 module.exports= app;

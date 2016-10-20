@@ -13,15 +13,84 @@
 @import "_includes/video-head";
 @import "_includes/side-text-image";
 @import "_includes/call-out";
+@import "_includes/set-of-three";
 
 body {
   background-color: $light-cream;
   overflow-x: hidden;
 }
 
+/* remove header video on home page when on mobile */
+@media only screen and (max-device-width: 480px) {
+  .video {
+    display: none;
+  }
+}
+
+
+
+.shadow {
+ text-shadow: 0px 0px 6px #000000;
+}
+
+.blends-card {
+  height: 100px;
+}
+
+.cart-bottom {
+  position: fixed;
+  left:0px;
+  bottom: 0px;
+  width:100%;
+  padding-bottom: 10px;
+}
+
+.cart-btn-submit {
+  float:right;
+}
+
+.cart-btn-add {
+  float: left;
+}
+
+.pay-btn-confirm {
+  float: right;
+}
+
+
+.goog-map {
+  width: 100%;
+  height: 400px;
+}
+
+.store-select-btn {
+  float: right;
+}
+
+.customise-syrup {
+  background-color: #ffffff;
+  height: 100px;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.customise-syrup-item {
+  background-color: #ffffff;
+  height: 50px;
+  border-style: solid;
+  border-width: 1px;
+  padding: 10px;
+  padding-top: 1px;
+}
+
+.customise-syrup-select {
+  float: right;
+}
+
 .sidepadd {
   padding-left: 20px;
   padding-right: 20px;
+  padding: 20px;
 }
 
 .stripe:nth-child(odd) {
@@ -33,8 +102,9 @@ body {
 }
 
 .row {
- //margin-bottom: 0px;
+
 }
+
 .logo-part{
   fill:$light-cream;
   fill-opacity:1;
